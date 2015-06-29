@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="ja" ng-app='myApp' ng-csp>
+<head>
+<title>sample Audio Striming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+
+<script src="angular.min.js"></script>
+<script src="peer.min.js"></script>
+<script src="controller.js"></script>
+
+<style>
+        div[file-drop-zone] {
+            border: 2px dashed #bbb;
+            border-radius: 5px;
+            padding: 25px;
+            text-align: center;
+            font: 20pt bold;
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+</style>
+
+</head>
+
+<body ng-controller = 'peerController'>
+<h1>Audio Streaming???</h1>
+
+    <div>
+        <p>My ID is: {{myId}}</p>
+
+        <div>
+        <p>Connecting to {{peer}} | {{status}}</p>
+        <input type="text" ng-model="peer" placeholder="Peer ID">
+        <button ng-click="connect()">Connect</button>
+        <button ng-click="send()">Send</button>
+        </div>
+
+        <div file-drop-zone on-drop-files="addNewFiles(files)">Drop music File </div>
+ 
+
+    </div>
+</body>
+</html>
+
